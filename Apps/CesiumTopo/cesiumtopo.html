@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!– Use correct character set. –>
+<meta charset="utf-8″>
+<!– Tell IE to use the latest, best version (or Chrome Frame if pre-IE11). –>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1″>
+<!– Make the application on mobile take up the full browser screen and disable user scaling. –>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+<title>Hello World!</title>
+<script src="Cesium.js"></script>
+
+<style>
+
+@import url(../Build/Cesium/Widgets/widgets.css);
+html, body, #cesiumContainer {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+margin: 0;
+overflow: hidden;
+padding: 0;
+font-family: sans-serif;
+}
+</style>
+
+</head>
+
+<body>
+<div id="cesiumContainer" class="fullSize">
+  
+<script>
+
+var viewer = new Cesium.Viewer('cesiumContainer', {
+  imageryProvider: new Cesium.OpenStreetMapImageryProvider({
+    url: 'http://cyberjapandata.gsi.go.jp/xyz/std/', credit: 'toto'}),
+    baseLayerPicker: false});
+viewer.scene.terrainProvider = new Cesium.CesiumTerrainProvider({
+  url: 'http://cesiumjs.org/stk-terrain/tilesets/world/tiles'});
+
+
+// var dataSource = Cesium.GeoJsonDataSource.load('exportbands_all_venues-1000.geojson');
+// viewer.dataSources.add(dataSource);
+// viewer.zoomTo(dataSource);
+
+// var dataSource = new Cesium.GeoJsonDataSource();
+// dataSource.loadUrl('/exportbands_all_venues-1000.geojson').then(function() {
+// viewer.dataSources.add(dataSource);
+// });
+
+
+</script>
+</div>
+<div id="loadingOverlay"><h1>Loading…</h1></div>
+<div id="toolbar"></div>
+
+
+</body>
+</html>

@@ -40,22 +40,25 @@ from geojson import Feature, Point, FeatureCollection, Polygon
 import json'''
 
 dataout_file = open('exportbands_all_venues.geojson','a+');
-f = open('exportbands_all_venues-1000.json');
+f = open('exportbands_all_venues.json');
 
 data = json.loads(f.read())
 
 f.close()
 
-width = 4	
+width = 1000
+min_number_gig	= 1
 z = len(data)
 print z
 y = 0
+nb_rec=0
 for row in data:
 	
 	print row
 	print row['count']
 	print z
-	if row['count'] > 5:
+	if row['count'] > min_number_gig:
+		nb_rec += 1
 		# TODO: pass if null
 		# pour l'instant
 		my_poly = Polygon([[(
@@ -96,3 +99,5 @@ for row in data:
 			else :
 				z -= 1
 			# json.dump (geojsvirgule,dataout_file)
+
+print nb_rec

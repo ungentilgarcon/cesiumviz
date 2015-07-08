@@ -22,7 +22,7 @@
     var viewer = new Cesium.Viewer('cesiumContainer');
 
 var dataSource = new Cesium.GeoJsonDataSource();
-dataSource.load('exportbands_all_venues-1.geojson').then(function() {var entities = dataSource.entities.entities;
+dataSource.load('exportbands_all_venues.geojson').then(function() {var entities = dataSource.entities.entities;
     for (var i = 0; i < entities.length; i++) {
         var entity = entities[i];
         console.log(entity);
